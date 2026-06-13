@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Rakhi Birthday Surprise ❤️</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+
+<!-- LOADING -->
+
+<div id="loader">
+
+<h1>❤️</h1>
+
+<h2>Preparing Your Surprise...</h2>
+
+<div class="loadingBox">
+
+<div class="loading"></div>
+
+</div>
+
+</div>
+
+
+
+
+
+
+
+<!-- LOGIN -->
+
+<section id="login" style="display:none">
+
+
+<h1>🎁 Secret Surprise</h1>
+
+
+<p>
+Only special person can enter ❤️
+</p>
+
+
+<input 
+type="password" 
+id="password"
+placeholder="Secret Code">
+
+
+<button onclick="unlock()">
+
+Unlock 🔐
+
+</button>
+
+
+</section>
+
+
+
+
+
+
+
+
+<!-- GIFT -->
+
+
+<section id="gift">
+
+
+<h1>
+
+Hey Rakhi ❤️
+
+</h1>
+
+
+<p>
+
+Someone made something special for you ✨
+
+</p>
+
+
+<div class="giftBox"
+onclick="openGift()">
+
+🎁
+
+</div>
+
+
+<p>Tap the gift</p>
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<!-- COUNTDOWN -->
+
+
+<section id="countdown">
+
+
+<h1 id="count">
+
+3
+
+</h1>
+
+
+<p>
+
+Something magical is coming ✨
+
+</p>
+
+
+</section>
+
+
+
+
+
+
+
+
+
+
+<!-- BIRTHDAY -->
+
+
+<section id="birthday">
+
+
+<h1 class="title">
+
+🎂 Happy Birthday Rakhi 🎂
+
+</h1>
+
+
+<p>
+
+Today is all about your smile ❤️
+
+</p>
+
+
+<button onclick="nextPage('story')">
+
+Start Journey 🚀
+
+</button>
+
+
+</section>
+
+
+
+
+
+
+
+
+
+
+<!-- TYPE STORY -->
+
+
+<section id="story">
+
+
+<h1>
+
+A Small Message 💫
+
+</h1>
+
+
+<p id="typing">
+
+</p>
+
+
+<button onclick="nextPage('memories')">
+
+Open Memories 📸
+
+</button>
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<!-- MEMORY -->
+
+
+<section id="memories">
+
+
+<h1>
+
+Our Memories 📸❤️
+
+</h1>
+
+
+<div class="gallery">
+
+
+<div class="card">
+
+<img src="images/photo1.jpg">
+
+<p>
+A moment I never forget ❤️
+</p>
+
+</div>
+
+
+
+
+<div class="card">
+
+<img src="images/photo2.jpg">
+
+<p>
+A beautiful memory ✨
+</p>
+
+</div>
+
+
+
+
+<div class="card">
+
+<img src="images/photo3.jpg">
+
+<p>
+Always special 😊
+</p>
+
+</div>
+
+
+</div>
+
+
+<button onclick="nextPage('chat')">
+
+Next Surprise 💬
+
+</button>
+
+
+</section>
+
+
+
+
+
+
+
+
+
+
+<!-- CHAT -->
+
+
+<section id="chat">
+
+
+<h1>
+
+Little Memories 💬
+
+</h1>
+
+
+<p>
+
+Rakhi: 😂😂 <br>
+
+Amit: Some moments are always special ❤️
+
+</p>
+
+
+
+<button onclick="nextPage('video')">
+
+Continue 🎬
+
+</button>
+
+
+</section>
+
+
+
+
+
+
+
+
+
+
+
+<!-- VIDEO -->
+
+
+<section id="video">
+
+
+<h1>
+
+A Small Video For You 🎬
+
+</h1>
+
+
+<video width="320" controls>
+
+
+<source src="videos/video.mp4">
+
+
+</video>
+
+
+
+<button onclick="nextPage('voice')">
+
+Listen Something 🎧
+
+</button>
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<!-- VOICE -->
+
+
+<section id="voice">
+
+
+<h1>
+
+Amit wants to say something ❤️
+
+</h1>
+
+
+<audio controls>
+
+
+<source src="music/voice.mp3">
+
+
+</audio>
+
+
+
+<button onclick="nextPage('letter')">
+
+Last Surprise 💌
+
+</button>
+
+
+</section>
+
+
+
+
+
+
+
+
+
+
+<!-- LETTER -->
+
+
+<section id="letter">
+
+
+<h1>
+
+A Letter For You 💌
+
+</h1>
+
+
+<p>
+
+Dear Rakhi ❤️ <br><br>
+
+Thank you for being a beautiful part of my life.
+
+Always keep smiling ✨
+
+</p>
+
+
+
+<button onclick="secret()">
+
+Don't Click 😜
+
+</button>
+
+
+</section>
+
+
+
+
+
+
+
+
+
+
+<!-- FINAL -->
+
+
+<section id="final">
+
+
+<h1>
+
+❤️ Forever Special ❤️
+
+</h1>
+
+
+<p>
+
+This surprise ends here... <br>
+
+but memories never end ✨
+
+</p>
+
+
+<h2>
+
+Made with ❤️ by Amit
+
+</h2>
+
+
+</section>
+
+
+
+
+
+
+
+
+
+
+<!-- MUSIC -->
+
+
+<audio id="music">
+
+<source src="music/song.mp3">
+
+</audio>
+
+
+
+
+
+
+<script src="script.js"></script>
+
+
+</body>
+
+</html>
