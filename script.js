@@ -4,18 +4,15 @@
 
 window.onload = function(){
 
-setTimeout(()=>{
+    setTimeout(()=>{
 
-document.getElementById("loader").style.display="none";
+        document.getElementById("loader").style.display="none";
 
-document.getElementById("login").style.display="flex";
+        document.getElementById("login").style.display="flex";
 
-},3000);
+    },3000);
 
 }
-
-
-
 
 
 
@@ -25,21 +22,15 @@ document.getElementById("login").style.display="flex";
 
 function hideAll(){
 
-let pages =
-document.querySelectorAll("section");
+    let pages = document.querySelectorAll("section");
 
+    pages.forEach(page=>{
 
-pages.forEach(page=>{
+        page.style.display="none";
 
-page.style.display="none";
-
-});
+    });
 
 }
-
-
-
-
 
 
 
@@ -47,35 +38,22 @@ page.style.display="none";
 // NEXT PAGE
 // ===========================
 
-
 function nextPage(pageName){
 
+    hideAll();
 
-hideAll();
+    document.getElementById(pageName).style.display="flex";
 
-
-document.getElementById(pageName)
-.style.display="flex";
-
-
-heartBlast();
+    heartBlast();
 
 
-// typing start
+    if(pageName=="story"){
 
-if(pageName=="story"){
+        startTyping();
 
-startTyping();
+    }
 
 }
-
-
-}
-
-
-
-
-
 
 
 
@@ -83,79 +61,66 @@ startTyping();
 // PASSWORD
 // ===========================
 
-
 function unlock(){
 
-
-let pass =
-document.getElementById("password").value;
-
+    let pass =
+    document.getElementById("password").value;
 
 
-if(pass=="rakhi18"){
+    if(pass=="rakhi18"){
 
+        nextPage("gift");
 
-nextPage("gift");
+    }
 
+    else{
 
-}
+        alert("😜 Wrong Password ❤️");
 
-else{
-
-
-alert("😜 Wrong Password ❤️");
-
+    }
 
 }
-
-
-}
-
-
-
-
-
-
 
 
 
 // ===========================
-// GIFT OPEN
+// GIFT OPEN + MUSIC
 // ===========================
-
 
 function openGift(){
 
 
-// music
-
-let music =
-document.getElementById("music");
+    let music =
+    document.getElementById("music");
 
 
-music.volume=0.5;
+    if(music){
+
+        music.volume = 0.5;
 
 
-music.play();
+        music.play()
+        .then(()=>{
+
+            console.log("Music started ❤️");
+
+        })
+        .catch(error=>{
+
+            console.log("Music Error:",error);
+
+        });
+
+    }
 
 
 
-// go countdown
-
-nextPage("countdown");
+    nextPage("countdown");
 
 
-startCountdown();
-
+    startCountdown();
 
 }
-
-
-
-
-
-
-
 
 
 
@@ -163,51 +128,41 @@ startCountdown();
 // COUNTDOWN
 // ===========================
 
-
 function startCountdown(){
 
 
-let number=3;
+    let number = 3;
 
 
-let count =
-document.getElementById("count");
+    let count =
+    document.getElementById("count");
 
 
-let timer =
-setInterval(()=>{
+    let timer =
+    setInterval(()=>{
 
 
-count.innerHTML=number;
+        count.innerHTML = number;
 
 
-number--;
+        number--;
 
 
-
-if(number<0){
-
-
-clearInterval(timer);
+        if(number < 0){
 
 
-nextPage("birthday");
+            clearInterval(timer);
+
+
+            nextPage("birthday");
+
+        }
+
+
+    },1000);
 
 
 }
-
-
-},1000);
-
-
-}
-
-
-
-
-
-
-
 
 
 
@@ -222,25 +177,24 @@ let typingText =
 
 
 
-let index=0;
+let index = 0;
 
 
 
 function startTyping(){
 
 
-let box =
-document.getElementById("typing");
+    let box =
+    document.getElementById("typing");
 
 
-box.innerHTML="";
+    box.innerHTML = "";
 
 
-index=0;
+    index = 0;
 
 
-type();
-
+    type();
 
 }
 
@@ -249,107 +203,80 @@ type();
 function type(){
 
 
-if(index < typingText.length){
+    if(index < typingText.length){
 
 
-document.getElementById("typing")
-.innerHTML +=
-typingText.charAt(index);
+        document.getElementById("typing").innerHTML +=
+        typingText.charAt(index);
 
 
-
-index++;
-
-
-setTimeout(type,70);
+        index++;
 
 
-}
+        setTimeout(type,70);
 
+    }
 
 }
 
 
 
-
-
-
-
-
-
 // ===========================
-// HEART BLAST
+// HEART BLAST EFFECT
 // ===========================
-
 
 function heartBlast(){
 
 
-for(let i=0;i<45;i++){
+    for(let i=0;i<45;i++){
 
 
-let heart =
-document.createElement("div");
+        let heart =
+        document.createElement("div");
 
 
-
-let icons =
-["❤️","💖","✨","🎂","🎁"];
-
+        let icons =
+        ["❤️","💖","✨","🎂","🎁"];
 
 
-heart.innerHTML =
-icons[
-Math.floor(Math.random()*icons.length)
-];
+        heart.innerHTML =
+        icons[Math.floor(Math.random()*icons.length)];
 
 
-
-heart.style.position="fixed";
-
-
-heart.style.left =
-Math.random()*100+"vw";
+        heart.style.position="fixed";
 
 
-heart.style.top="-20px";
+        heart.style.left =
+        Math.random()*100+"vw";
 
 
-heart.style.fontSize =
-(Math.random()*25+20)+"px";
+        heart.style.top="-20px";
 
 
-heart.style.zIndex="1000";
+        heart.style.fontSize =
+        (Math.random()*25+20)+"px";
 
 
-heart.style.animation =
-"fallDown 3s linear";
+        heart.style.zIndex="1000";
 
 
-document.body.appendChild(heart);
+        heart.style.animation =
+        "fallDown 3s linear";
+
+
+        document.body.appendChild(heart);
 
 
 
+        setTimeout(()=>{
 
-setTimeout(()=>{
+            heart.remove();
 
+        },3000);
 
-heart.remove();
-
-
-},3000);
-
+    }
 
 }
-
-
-}
-
-
-
-
-
-
 
 
 
@@ -362,24 +289,19 @@ let style =
 document.createElement("style");
 
 
-style.innerHTML=`
+style.innerHTML = `
 
 @keyframes fallDown{
 
-
 to{
-
 
 transform:
 translateY(110vh)
 rotate(360deg);
 
-
 opacity:0;
 
-
 }
-
 
 }
 
@@ -387,12 +309,6 @@ opacity:0;
 
 
 document.head.appendChild(style);
-
-
-
-
-
-
 
 
 
@@ -404,13 +320,11 @@ document.head.appendChild(style);
 function secret(){
 
 
-alert(
-"😂 Maine bola tha don't click...\n\nBut ek aur baat ❤️\n\nAlways keep smiling ✨"
-);
+    alert(
+    "😂 Maine bola tha don't click...\n\nBut ek aur baat ❤️\n\nAlways keep smiling ✨"
+    );
 
 
-
-nextPage("final");
-
+    nextPage("final");
 
 }
